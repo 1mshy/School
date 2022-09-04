@@ -6,21 +6,31 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args)
     {
-        for(int i = 0; i < 501; i++)
-        {
-            System.out.printf("%d: %s\n", i, toBinary(i));
-        }
     }
-
+    public static int toDecimal(String num)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(num).reverse();
+        char[] chars = sb.toString().toCharArray();
+        int decimal = chars[0]==1 ? 1 : 0;
+        for(int i = 1; i < chars.length; i++)
+        {
+            if(chars[i]=='1')
+            {
+                decimal += 2 << i-1;
+            }
+        }
+        return decimal;
+    }
     // num > 0
     public static String toBinary(int num)
     {
         assert num > 0;
+        // closest power of 2 under the number
         int nearestTwoBase = 2 << (int) (Math.log(num)/Math.log(2));
         StringBuilder sb = new StringBuilder();
         while(num >= 0)
         {
-            // base is 2
             if(num==nearestTwoBase)
             {
                 sb.append("1");
