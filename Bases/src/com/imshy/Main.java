@@ -6,6 +6,8 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args)
     {
+        System.out.println(toDecimal(toBinary(544443444)));
+
     }
     public static int toDecimal(String num)
     {
