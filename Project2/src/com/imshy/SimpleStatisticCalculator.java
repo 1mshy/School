@@ -17,8 +17,8 @@ public class SimpleStatisticCalculator {
         double[] nums = Stream.of(numbers.split(" "))
                 .mapToDouble(Double::parseDouble).toArray();
         OptionalDouble av;
-        //Not recommended to use method getAsDouble without checking
-        //if a value is present
+        /*Not recommended to use method getAsDouble without checking
+        if a value is present*/
         double average = (av = Arrays.stream(nums).average())
                 .isPresent() ? av.getAsDouble() : -1 ;
         double minimum = (av = Arrays.stream(nums).min())
